@@ -22,7 +22,7 @@ classifiers = [
 ]
 dependencies = [
     "huggingface_hub",
-    "lightrag-hku @ file:///mnt/shared-storage-user/sciprismax/hexuming/LightRAG-1.4.9.8",
+    "lightrag-hku @ file:///mnt/shared-storage-user/sciprismax/hexuming/my_repo/LightRAG",
     "mineru[core]",
     "tqdm",
 ]
