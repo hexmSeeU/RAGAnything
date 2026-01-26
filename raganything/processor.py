@@ -1047,6 +1047,7 @@ class ProcessorMixin:
                 "source_id": chunk_id,
                 "file_path": os.path.basename(file_path),
             }
+            
 
             entities_to_store[entity_id] = entity_data
 
