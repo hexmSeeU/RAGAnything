@@ -1,6 +1,6 @@
 huggingface_hub
 # LightRAG packages
-lightrag-hku
+lightrag-hku @ file:///mnt/shared-storage-user/sciprismax/hexuming/LightRAG-1.4.9.8
 # MinerU 2.0 packages (replaces magic-pdf)
 mineru[core]
 # Progress bars for batch processing
