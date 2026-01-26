@@ -1043,7 +1043,7 @@ class ProcessorMixin:
             entity_data = {
                 "entity_name": entity_name,
                 "entity_type": entity_info.get("entity_type", content_type),
-                "content": entity_info.get("summary", description) + f"<image_path>{original_item.get("img_path", "")}</image_path>",
+                "content": entity_info.get("summary", description) + f"<image_path>{original_item.get('img_path', '')}</image_path>",
                 "source_id": chunk_id,
                 "file_path": os.path.basename(file_path),
             }
