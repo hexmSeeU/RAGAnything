@@ -1497,6 +1497,50 @@ class ProcessorMixin:
 
         self.logger.info(f"Document {file_path} processing complete!")
 
+    async def process_document_mineru(
+        self,
+        file_path: str,
+        output_dir: str = None,
+        parse_method: str = None,
+        display_stats: bool = None,
+        split_by_character: str | None = None,
+        split_by_character_only: bool = False,
+        doc_id: str | None = None,
+        **kwargs,
+    ):
+        """
+        Complete document processing workflow
+
+        Args:
+            file_path: Path to the file to process
+            output_dir: output directory (defaults to config.parser_output_dir)
+            parse_method: Parse method (defaults to config.parse_method)
+            display_stats: Whether to display content statistics (defaults to config.display_content_stats)
+            split_by_character: Optional character to split the text by
+            split_by_character_only: If True, split only by the specified character
+            doc_id: Optional document ID, if not provided will be generated from content
+            **kwargs: Additional parameters for parser (e.g., lang, device, start_page, end_page, formula, table, backend, source)
+        """
+        # Ensure LightRAG is initialized
+        await self._ensure_lightrag_initialized()
+
+        # Use config defaults if not provided
+        if output_dir is None:
+            output_dir = self.config.parser_output_dir
+        if parse_method is None:
+            parse_method = self.config.parse_method
+        if display_stats is None:
+            display_stats = self.config.display_content_stats
+
+        self.logger.info(f"Starting complete document processing: {file_path}")
+
+        # Step 1: Parse document
+        content_list, content_based_doc_id = await self.parse_document(
+            file_path, output_dir, parse_method, display_stats, **kwargs
+        )
+
+        self.logger.info(f"Document {file_path} processing complete!")
+
     async def process_document_complete_lightrag_api(
         self,
         file_path: str,
