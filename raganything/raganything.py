@@ -11,7 +11,6 @@ import os
 from typing import Dict, Any, Optional, Callable
 import sys
 import asyncio
-import atexit
 from dataclasses import dataclass, field
 from pathlib import Path
 
